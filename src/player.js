@@ -1,5 +1,5 @@
-class Player {
-    constructor(name) {
-        this.name = name
-    }
-}
+// class Player {
+//     constructor(name) {
+//         this.name = name
+//     }
+// }
