@@ -49,14 +49,15 @@
             d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"
           />
         </svg>
-        <h2>Player One</h2>
+        <h2 id="p1-display-name">Player One</h2>
         <input
+          id="p1-name"
           type="text"
           placeholder="Enter your name here..."
           maxlength="15"
           minlength="2"
         />
-        <button type="button">Submit</button>
+        <button type="button" class="btn" onclick="updateP1()">Submit</button>
       </div>
       <div id="gameboard">
         <div id="square1" class="grid-item"></div>
@@ -82,14 +83,15 @@
             d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"
           />
         </svg>
-        <h2>Player Two</h2>
+        <h2 id="p2-display-name">Player Two</h2>
         <input
+          id="p2-name"
           type="text"
           placeholder="Enter your name here..."
           maxlength="15"
           minlength="2"
         />
-        <button type="button">Submit</button>
+        <button type="button" class="btn" onclick="updateP2()">Submit</button>
       </div>
     </div>
 

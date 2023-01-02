@@ -3,6 +3,13 @@ imgX.src = './images/Picture2.png'
 const imgO = document.createElement('img')
 imgO.src = './images/Picture1.png'
 
+let p1name = document.getElementById('p1-name')
+let p2name = document.getElementById('p2-name')
+let p2displayname = document.getElementById('p2-display-name')
+let p1displayname = document.getElementById('p1-display-name')
+const name1 = "Player One"
+const name2 = "Player Two"
+
 // let gameboard = []
 // const createBoard = () => { }
 
@@ -29,14 +36,11 @@ class Player {
     }
 }
 
-// place at top
-let name1 = "Player One"
-let name2 = "Player Two"
-
 const playerOne = new Player(name1)
 const playerTwo = new Player(name2)
 const players = [playerOne, playerTwo]
 
+// taking input value and setting player name
 const nameCheck = (input) => {
     if (input.trim() === "") {
         return false;
@@ -44,14 +48,24 @@ const nameCheck = (input) => {
     return true
 }
 
+const updateP2 = () => {
+    let testText = p2name.value.trim()
+    if (nameCheck(testText) === false) {
+        return
+    }
+    playerTwo.updateName = titleCase(testText);
+    p2displayname.textContent = playerTwo.getName
+    p2name.value = ""
+}
 
-// add id to input and finish code
-
-// make for p2
-
-// const updateP1 = () => {
-//     // let testText =
-//     if (nameCheck(testText) === false) {
-//         return
-//     }
-// }
+const updateP1 = () => {
+    let testText = p1name.value.trim()
+    if (nameCheck(testText) === false) {
+        return
+    }
+    playerOne.updateName = titleCase(testText);
+    p1displayname.textContent = playerOne.getName
+    p1name.value = ""
+}
+const titleCase = (string) =>
+    string[0].toUpperCase() + string.slice(1).toLowerCase();
