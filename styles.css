@@ -1,10 +1,48 @@
+:root {
+  --blue-green: #2596beff;
+  --mahogany: #bc4c09ff;
+  --african-violet: #b07bacff;
+  --baby-powder: #fcfff7ff;
+  --light-cyan: #dffdffff;
+}
+
 * {
   box-sizing: border-box;
-  border: 2px solid red;
+  border: 1px solid red;
 }
 
 html,
 body {
   margin: 0%;
   padding: 0%;
+}
+
+#viewport {
+  background-color: pink;
+}
+
+#gameboard {
+  background-color: black;
+  display: grid;
+  height: 55vh;
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  margin: 0 auto;
+}
+
+#gameboard div {
+  background-color: white;
+}
+
+#gameboard div:hover {
+  background-color: var(--baby-powder);
+}
+
+#gameboard div img {
+  height: 100%;
+  max-width: 100%;
 }
