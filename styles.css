@@ -8,7 +8,14 @@
 
 * {
   box-sizing: border-box;
-  /* border: 1px solid red; */
+  border: 1px solid red;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 html,
@@ -18,7 +25,11 @@ body {
 }
 
 #viewport {
-  background-color: pink;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: pink; */
 }
 
 #gameboard {
@@ -31,7 +42,6 @@ body {
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-  margin: 0 auto;
 }
 
 #gameboard div {
@@ -45,4 +55,13 @@ body {
 #gameboard div img {
   height: 100%;
   max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  #viewport {
+    flex-direction: column;
+  }
+  h2 {
+    margin: 0.4em 0;
+  }
 }

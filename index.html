@@ -36,7 +36,23 @@
   </head>
   <body>
     <div id="viewport">
-      <div id="player-one"></div>
+      <div id="player-one" class="column">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="2em"
+          height="2em"
+          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="#2596be"
+            d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"
+          />
+        </svg>
+        <h2>Player One</h2>
+        <input type="text" placeholder="Enter your name" />
+        <button type="button">Submit</button>
+      </div>
       <div id="gameboard">
         <div id="square1" class="grid-item"></div>
         <div id="square2" class="grid-item"></div>
@@ -48,7 +64,23 @@
         <div id="square8" class="grid-item"></div>
         <div id="square9" class="grid-item"></div>
       </div>
-      <div id="player-two"></div>
+      <div id="player-two" class="column">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="2em"
+          height="2em"
+          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="#bc4c09ff"
+            d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"
+          />
+        </svg>
+        <h2>Player Two</h2>
+        <input type="text" placeholder="Enter your name" />
+        <button type="button">Submit</button>
+      </div>
     </div>
 
     <script src="./src/script.js"></script>
