@@ -36,3 +36,22 @@ let name2 = "Player Two"
 const playerOne = new Player(name1)
 const playerTwo = new Player(name2)
 const players = [playerOne, playerTwo]
+
+const nameCheck = (input) => {
+    if (input.trim() === "") {
+        return false;
+    }
+    return true
+}
+
+
+// add id to input and finish code
+
+// make for p2
+
+// const updateP1 = () => {
+//     // let testText =
+//     if (nameCheck(testText) === false) {
+//         return
+//     }
+// }
