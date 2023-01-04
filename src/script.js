@@ -39,7 +39,8 @@ const players = [playerOne, playerTwo]
 
 const Gameboard = {
     players,
-    board: [imgX, imgO, false, imgX, imgO, imgX, imgX, imgO, ""],
+    // board: [imgX, imgO, false, imgX, imgO, imgX, imgX, imgO, ""],
+    board: Array(9).fill(false),
     // store gameboard as array
     // store players as object
     updateDisplay: function () {
@@ -47,7 +48,7 @@ const Gameboard = {
             console.log('updating')
             console.log(gridInput[i])
             if (Gameboard.board[i]) {
-                gridInput[i].innerHTML = Gameboard.board[i].outerHTML
+                gridInput[i].innerHTML = this.board[i].outerHTML
             } else {
                 console.log('array item empty')
             }
@@ -65,9 +66,11 @@ const gridInput = Array.from(grid)
 const moveMaker = (e) => {
     let squareSelect = e.target.id
     console.log('move made' + squareSelect)
-    if (Gameboard.board.length === 9) {
-        return console.log('tie')
-    }
+    Gameboard.board[squareSelect] = imgO
+    Gameboard.updateDisplay()
+    // if (Gameboard.board.length === 9) {
+    //     return console.log('tie')
+    // }
 }
 
 gridInput.forEach(element => {
