@@ -10,23 +10,11 @@ let p1displayname = document.getElementById('p1-display-name')
 const name1 = "Player One"
 const name2 = "Player Two"
 
-// let gameboard = []
-// const createBoard = () => { }
-
-const gameboard = {
-    // store gameboard as array
-    // store players as object
-}
-
-class Gameboard {
-    constructor(players) {
-        this.players = players
-    }
-}
-
 class Player {
     constructor(name) {
         this.name = name
+        this.wins = 0
+        this.loss = 0
     }
     set updateName(newName) {
         this.name = newName
@@ -39,6 +27,54 @@ class Player {
 const playerOne = new Player(name1)
 const playerTwo = new Player(name2)
 const players = [playerOne, playerTwo]
+
+// let gameboard = []
+// const createBoard = () => { }
+
+// class Gameboard {
+//     constructor(players) {
+//         this.players = players
+//     }
+// }
+
+const Gameboard = {
+    players,
+    board: [imgX, imgO, false, imgX, imgO, imgX, imgX, imgO, ""],
+    // store gameboard as array
+    // store players as object
+    updateDisplay: function () {
+        for (let i = 0; i < 9; i++) {
+            console.log('updating')
+            console.log(gridInput[i])
+            if (Gameboard.board[i]) {
+                gridInput[i].innerHTML = Gameboard.board[i].outerHTML
+            } else {
+                console.log('array item empty')
+            }
+
+            // add if statement to protect against undefined or null
+        }
+    }
+}
+
+// for loop to display array object
+
+const grid = document.getElementsByClassName('grid-item')
+const gridInput = Array.from(grid)
+
+const moveMaker = (e) => {
+    let squareSelect = e.target.id
+    console.log('move made' + squareSelect)
+    if (Gameboard.board.length === 9) {
+        return console.log('tie')
+    }
+}
+
+gridInput.forEach(element => {
+    element.addEventListener('click', moveMaker)
+});
+
+
 
 // taking input value and setting player name
 const nameCheck = (input) => {

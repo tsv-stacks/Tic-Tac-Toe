@@ -57,7 +57,11 @@ body {
   max-width: 100%;
 }
 
-@media (max-width: 900px) {
+.grid-item {
+  cursor: pointer;
+}
+
+@media (max-width: 770px) {
   #viewport {
     flex-direction: column;
   }
