@@ -26,4 +26,5 @@ Standard rules for Tic Tac Toe. Player One will have the first move, the winner 
 - [ ] animations
 - [ ] winner & game over screen
 - [ ] Update readme
-- [ ] Clean code and remove unneccesary files
+- [ ] Clean code
+- [x] Remove unneccesary files
