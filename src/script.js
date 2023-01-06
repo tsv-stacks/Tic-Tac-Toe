@@ -50,7 +50,6 @@ const Gameboard = {
             console.log('false')
             p1toggle.classList.add('active')
             p2toggle.classList.remove('active')
-
         } else {
             console.log('true')
             p1toggle.classList.remove('active')
