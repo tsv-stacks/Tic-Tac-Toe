@@ -6,6 +6,10 @@ A two-player version of Tic Tac Toe that can be played from a single instance (b
 
 This project was coded completely from scratch by myself and was so I could take my learnings of ES6 JavaScript and apply them to a project. The aim of this project was also to have as little as global code as possible.
 
+## Rules & How To Play
+
+Standard rules for Tic Tac Toe. Player One will have the first move, the winner of any games will go second in all subsequent games.
+
 ## Concepts covered:
 
 - JavaScript ES6 Classes and Syntax
