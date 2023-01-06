@@ -82,6 +82,9 @@ function winCheck(value) {
     const isEqual = (a, b, c, x) => a === x && b === x && c === x;
     function tieCheck() {
         if (!Gameboard.board.includes(false)) {
+            setTimeout(function () {
+                Gameboard.clearBoard()
+            }, 1000);
             return console.log('tie')
         }
     }
