@@ -1,7 +1,9 @@
 const imgX = document.createElement('img')
 imgX.src = './images/Picture2.png'
+imgX.id = 'imgX'
 const imgO = document.createElement('img')
 imgO.src = './images/Picture1.png'
+imgO.id = 'imgO'
 
 let p1name = document.getElementById('p1-name')
 let p2name = document.getElementById('p2-name')
@@ -23,6 +25,12 @@ class Player {
     get getName() {
         return this.name
     }
+    get getWins() {
+        return this.wins
+    }
+    get getLoss() {
+        return this.loss
+    }
 }
 
 const playerOne = new Player(name1)
@@ -39,6 +47,8 @@ const Gameboard = {
             gridInput[i].innerHTML = this.board[i].outerHTML
             Gameboard.isPlayerOneTurn = !Gameboard.isPlayerOneTurn
             this.updatePlayer()
+            winCheck(imgO)
+            winCheck(imgX)
         } else {
             console.log('square taken')
         }
@@ -55,8 +65,64 @@ const Gameboard = {
             p1toggle.classList.remove('active')
             p2toggle.classList.add('active')
         }
+    },
+    clearBoard: function () {
+        gridInput.forEach(input => input.innerHTML = "")
     }
 }
+
+function winCheck(value) {
+    let x = value;
+    const isEqual = (a, b, c, x) => a === x && b === x && c === x;
+    function tieCheck() {
+        if (!Gameboard.board.includes(false)) {
+            return console.log('tie')
+        }
+    }
+    const updateScore = (x) => {
+        if (x === imgO) {
+            playerOne.wins++
+            playerTwo.loss++
+        } else if (x === imgX) {
+            playerOne.loss++
+            playerTwo.wins++
+        }
+        Gameboard.clearBoard()
+    }
+
+    if (isEqual(Gameboard.board[0], Gameboard.board[1], Gameboard.board[2], x)) {
+        updateScore(x)
+        return console.log('win')
+    } else if (isEqual(Gameboard.board[0], Gameboard.board[3], Gameboard.board[6], x)) {
+        updateScore(x)
+        return console.log('win')
+
+    } else if (isEqual(Gameboard.board[0], Gameboard.board[4], Gameboard.board[8], x)) {
+        updateScore(x)
+        return console.log('win')
+
+    } else if (isEqual(Gameboard.board[1], Gameboard.board[4], Gameboard.board[7], x)) {
+        updateScore(x)
+        return console.log('win')
+
+    } else if (isEqual(Gameboard.board[2], Gameboard.board[5], Gameboard.board[8], x)) {
+        updateScore(x)
+        return console.log('win')
+
+    } else if (isEqual(Gameboard.board[3], Gameboard.board[4], Gameboard.board[5], x)) {
+        updateScore(x)
+        return console.log('win')
+
+    } else if (isEqual(Gameboard.board[6], Gameboard.board[7], Gameboard.board[8], x)) {
+        updateScore(x)
+        return console.log('win')
+
+    } else {
+        tieCheck()
+    }
+}
+
+
 
 const grid = document.getElementsByClassName('grid-item')
 const gridInput = Array.from(grid)
