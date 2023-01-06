@@ -7,6 +7,7 @@ let p1name = document.getElementById('p1-name')
 let p2name = document.getElementById('p2-name')
 let p2displayname = document.getElementById('p2-display-name')
 let p1displayname = document.getElementById('p1-display-name')
+
 const name1 = "Player One"
 const name2 = "Player Two"
 
@@ -28,37 +29,35 @@ const playerOne = new Player(name1)
 const playerTwo = new Player(name2)
 const players = [playerOne, playerTwo]
 
-// let gameboard = []
-// const createBoard = () => { }
-
-// class Gameboard {
-//     constructor(players) {
-//         this.players = players
-//     }
-// }
-
 const Gameboard = {
     players,
     // board: [imgX, imgO, false, imgX, imgO, imgX, imgX, imgO, ""],
     board: Array(9).fill(false),
-    // store gameboard as array
-    // store players as object
-    updateDisplay: function () {
-        for (let i = 0; i < 9; i++) {
-            console.log('updating')
-            console.log(gridInput[i])
-            if (Gameboard.board[i]) {
-                gridInput[i].innerHTML = this.board[i].outerHTML
-            } else {
-                console.log('array item empty')
-            }
+    isPlayerOneTurn: true,
+    updateDisplay: function (i) {
+        if (Gameboard.board[i] && gridInput[i] !== undefined) {
+            gridInput[i].innerHTML = this.board[i].outerHTML
+            Gameboard.isPlayerOneTurn = !Gameboard.isPlayerOneTurn
+            this.updatePlayer()
+        } else {
+            console.log('square taken')
+        }
+    },
+    updatePlayer: function () {
+        const p1toggle = document.querySelector('#player-one');
+        const p2toggle = document.querySelector('#player-two');
+        if (this.isPlayerOneTurn) {
+            console.log('false')
+            p1toggle.classList.add('active')
+            p2toggle.classList.remove('active')
 
-            // add if statement to protect against undefined or null
+        } else {
+            console.log('true')
+            p1toggle.classList.remove('active')
+            p2toggle.classList.add('active')
         }
     }
 }
-
-// for loop to display array object
 
 const grid = document.getElementsByClassName('grid-item')
 const gridInput = Array.from(grid)
@@ -66,18 +65,18 @@ const gridInput = Array.from(grid)
 const moveMaker = (e) => {
     let squareSelect = e.target.id
     console.log('move made' + squareSelect)
-    Gameboard.board[squareSelect] = imgO
-    Gameboard.updateDisplay()
-    // if (Gameboard.board.length === 9) {
-    //     return console.log('tie')
-    // }
+    if (Gameboard.isPlayerOneTurn === true) {
+        Gameboard.board[squareSelect] = imgO
+        Gameboard.updateDisplay(squareSelect)
+    } else {
+        Gameboard.board[squareSelect] = imgX
+        Gameboard.updateDisplay(squareSelect)
+    }
 }
 
 gridInput.forEach(element => {
     element.addEventListener('click', moveMaker)
 });
-
-
 
 // taking input value and setting player name
 const nameCheck = (input) => {

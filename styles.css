@@ -8,7 +8,7 @@
 
 * {
   box-sizing: border-box;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .column {
@@ -59,6 +59,11 @@ body {
 
 .grid-item {
   cursor: pointer;
+}
+
+.active {
+  border: 10px solid var(--african-violet);
+  border-radius: 5px;
 }
 
 @media (max-width: 770px) {
