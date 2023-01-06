@@ -8,7 +8,7 @@
 
 * {
   box-sizing: border-box;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .column {
@@ -65,6 +65,18 @@ body {
   border: 10px solid var(--african-violet);
   border-radius: 5px;
 }
+
+#player-one p,
+#player-two p {
+  margin: 5px 0;
+}
+
+/* #player-one {
+  border: 2px solid var(--blue-green);
+}
+#player-two {
+  border: 2px solid var(--mahogany);
+} */
 
 @media (max-width: 770px) {
   #viewport {

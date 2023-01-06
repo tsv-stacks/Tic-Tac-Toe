@@ -9,7 +9,6 @@ let p1name = document.getElementById('p1-name')
 let p2name = document.getElementById('p2-name')
 let p2displayname = document.getElementById('p2-display-name')
 let p1displayname = document.getElementById('p1-display-name')
-
 const name1 = "Player One"
 const name2 = "Player Two"
 
@@ -67,12 +66,19 @@ const Gameboard = {
         }
     },
     clearBoard: function () {
+        console.log('boardclear')
         gridInput.forEach(input => input.innerHTML = "")
+        this.board = []
+        this.board = Array(9).fill(false)
     }
 }
 
 function winCheck(value) {
     let x = value;
+    const p1win = document.getElementById('p1wins')
+    const p1loss = document.getElementById('p1loss')
+    const p2win = document.getElementById('p2wins')
+    const p2loss = document.getElementById('p2loss')
     const isEqual = (a, b, c, x) => a === x && b === x && c === x;
     function tieCheck() {
         if (!Gameboard.board.includes(false)) {
@@ -87,42 +93,33 @@ function winCheck(value) {
             playerOne.loss++
             playerTwo.wins++
         }
-        Gameboard.clearBoard()
+        p1win.innerText = playerOne.getWins
+        p1loss.innerText = playerOne.getLoss
+        p2win.innerText = playerTwo.getWins
+        p2loss.innerText = playerTwo.getLoss
+        setTimeout(function () {
+            Gameboard.clearBoard()
+        }, 1000);
     }
 
     if (isEqual(Gameboard.board[0], Gameboard.board[1], Gameboard.board[2], x)) {
-        updateScore(x)
-        return console.log('win')
+        return updateScore(x)
     } else if (isEqual(Gameboard.board[0], Gameboard.board[3], Gameboard.board[6], x)) {
-        updateScore(x)
-        return console.log('win')
-
+        return updateScore(x)
     } else if (isEqual(Gameboard.board[0], Gameboard.board[4], Gameboard.board[8], x)) {
-        updateScore(x)
-        return console.log('win')
-
+        return updateScore(x)
     } else if (isEqual(Gameboard.board[1], Gameboard.board[4], Gameboard.board[7], x)) {
-        updateScore(x)
-        return console.log('win')
-
+        return updateScore(x)
     } else if (isEqual(Gameboard.board[2], Gameboard.board[5], Gameboard.board[8], x)) {
-        updateScore(x)
-        return console.log('win')
-
+        return updateScore(x)
     } else if (isEqual(Gameboard.board[3], Gameboard.board[4], Gameboard.board[5], x)) {
-        updateScore(x)
-        return console.log('win')
-
+        return updateScore(x)
     } else if (isEqual(Gameboard.board[6], Gameboard.board[7], Gameboard.board[8], x)) {
-        updateScore(x)
-        return console.log('win')
-
+        return updateScore(x)
     } else {
         tieCheck()
     }
 }
-
-
 
 const grid = document.getElementsByClassName('grid-item')
 const gridInput = Array.from(grid)
