@@ -116,6 +116,8 @@ function winCheck(value) {
         return updateScore(x)
     } else if (isEqual(Gameboard.board[6], Gameboard.board[7], Gameboard.board[8], x)) {
         return updateScore(x)
+    } else if (isEqual(Gameboard.board[2], Gameboard.board[4], Gameboard.board[6], x)) {
+        return updateScore(x)
     } else {
         tieCheck()
     }
