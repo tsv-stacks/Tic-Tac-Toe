@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -37,21 +43,25 @@
   <body>
     <div id="viewport">
       <div id="player-one" class="column">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="2em"
-          height="2em"
-          preserveAspectRatio="xMidYMid meet"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="#2596be"
-            d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"
-          />
-        </svg>
-        <h2 id="p1-display-name">Player One</h2>
-        <p>Wins: <span id="p1wins">0</span></p>
-        <p>Losses: <span id="p1loss">0</span></p>
+        <div class="player-icon column">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="2em"
+            height="2em"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="#2596be"
+              d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"
+            />
+          </svg>
+          <h2 id="p1-display-name">Player One</h2>
+        </div>
+        <div class="win-loss column">
+          <p>Wins: <span id="p1wins">0</span></p>
+          <p>Losses: <span id="p1loss">0</span></p>
+        </div>
         <input
           id="p1-name"
           type="text"
@@ -73,21 +83,26 @@
         <div id="8" class="grid-item"></div>
       </div>
       <div id="player-two" class="column">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="2em"
-          height="2em"
-          preserveAspectRatio="xMidYMid meet"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="#bc4c09ff"
-            d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"
-          />
-        </svg>
-        <h2 id="p2-display-name">Player Two</h2>
-        <p>Wins: <span id="p2wins">0</span></p>
-        <p>Losses: <span id="p2loss">0</span></p>
+        <div class="player-icon column">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="2em"
+            height="2em"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="#bc4c09ff"
+              d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"
+            />
+          </svg>
+          <h2 id="p2-display-name">Player Two</h2>
+        </div>
+        <div class="win-loss column">
+          <p>Wins: <span id="p2wins">0</span></p>
+          <p>Losses: <span id="p2loss">0</span></p>
+        </div>
+
         <input
           id="p2-name"
           type="text"
