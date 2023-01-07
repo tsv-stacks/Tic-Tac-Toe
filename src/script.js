@@ -38,7 +38,6 @@ const players = [playerOne, playerTwo]
 
 const Gameboard = {
     players,
-    // board: [imgX, imgO, false, imgX, imgO, imgX, imgX, imgO, ""],
     board: Array(9).fill(false),
     isPlayerOneTurn: true,
     updateDisplay: function (i) {

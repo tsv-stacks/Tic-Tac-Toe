@@ -22,9 +22,9 @@ Standard rules for Tic Tac Toe. Player One will have the first move, the winner 
 - [ ] Make it first to 5
 - [x] Add win - loss counting
 - [x] Build Logic to check when game is over (win / loss / tie)
-- [ ] Clean up interface
+- [x] Clean up interface
 - [ ] animations
 - [ ] winner & game over screen
 - [ ] Update readme
-- [ ] Clean code
+- [x] Clean code
 - [x] Remove unneccesary files
