@@ -8,7 +8,7 @@
 
 * {
   box-sizing: border-box;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 .column {
@@ -84,6 +84,43 @@ body {
 #gameboard div img {
   height: 100%;
   max-width: 100%;
+}
+
+#game-result {
+  font-family: "Permanent Marker", cursive;
+  font-size: 36px;
+}
+
+#win-screen {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  background-color: #f6dcff;
+  position: fixed;
+  width: 55%;
+  height: 55vh;
+  aspect-ratio: 1;
+  z-index: -1;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.elementToFadeInAndOut {
+  animation: fadeInOut 2s linear 1 forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .grid-item {
