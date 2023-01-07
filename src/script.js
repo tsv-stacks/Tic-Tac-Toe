@@ -69,6 +69,27 @@ const Gameboard = {
         gridInput.forEach(input => input.innerHTML = "")
         this.board = []
         this.board = Array(9).fill(false)
+    },
+    resultPopUp: function (x) {
+        let gameOverScreen = document.getElementById('win-screen');
+        let gameResult = document.getElementById('game-result');
+        let playerName = '';
+        if (x === 'tie') {
+            playerName = "It's a Tie!";
+            gameResult.textContent = playerName
+        } else if (x === 'playerone') {
+            playerName = this.players[0].getName;
+            gameResult.textContent = `${playerName} wins!`;
+        } else if (x === 'playertwo') {
+            playerName = this.players[1].getName;
+            gameResult.textContent = `${playerName} wins!`;
+        }
+        gameOverScreen.style.zIndex = '2';
+        gameOverScreen.classList.add('elementToFadeInAndOut');
+        setTimeout(function () {
+            gameOverScreen.classList.remove('elementToFadeInAndOut');
+            gameOverScreen.style.zIndex = '-1';
+        }, 2000);
     }
 }
 
@@ -81,6 +102,7 @@ function winCheck(value) {
     const isEqual = (a, b, c, x) => a === x && b === x && c === x;
     function tieCheck() {
         if (!Gameboard.board.includes(false)) {
+            Gameboard.resultPopUp('tie')
             setTimeout(function () {
                 Gameboard.clearBoard()
             }, 1000);
@@ -91,9 +113,11 @@ function winCheck(value) {
         if (x === imgO) {
             playerOne.wins++
             playerTwo.loss++
+            Gameboard.resultPopUp('playerone')
         } else if (x === imgX) {
             playerOne.loss++
             playerTwo.wins++
+            Gameboard.resultPopUp('playertwo')
         }
         p1win.innerText = playerOne.getWins
         p1loss.innerText = playerOne.getLoss
